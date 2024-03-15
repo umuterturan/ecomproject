@@ -28,8 +28,8 @@ env = Env()
 env.read_env()
 
 SECRET_KEY = env('SECRET_KEY')
-DEBUG = env('DEBUG') == 'True'
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
+DEBUG = env('DEBUG')
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS',)
 
 
 # Application definition
@@ -92,7 +92,7 @@ DATABASES = {
         'USER': env('DATABASE_USER'),
         'PASSWORD': env('DATABASE_PASSWORD'),
         'HOST': env('DATABASE_HOST'),
-        'PORT': env.int('DATABASE_PORT', default=''),
+        'PORT': env.int('DATABASE_PORT'),
     }
 }
 
