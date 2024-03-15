@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<header class="bg-dark py-5">
+  <div class="container px-4 px-lg-5 my-5">
+      <div class="text-center text-white">
+          <h1 class="display-4 fw-bolder"> {{category.name }} </h1>
+          <p class="lead fw-normal text-white-50 mb-0">With this shop homepage template</p>
+      </div>
+  </div>
+</header>
+<br>
+<center>
+
+<ul class="list-unstyled">
+    {% for product in category.products.all %}
+    <div class="card mb-3" style="max-width: 800px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <center>
+                <img src="{{ product.image.url }}" class="img-fluid rounded-start" alt="">
+            </center>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{ product.name }} </h5>
+              <p class="card-text">{{ product.description }} </p>
+              {% if product.is_sale %}
+                <strike>${{ product.price }} </strike>  ${{ product.sale_price }}
+              {% else %}
+                ${{ product.price }}
+              {% endif %}
+            </div>
+            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+              <div class="text-center"><a class="btn btn-outline-dark mt-auto"  href="{% url 'product' product.id %}">{% trans "Go to product"  %}</a></div>
+          </div>
+          </div>
+        </div>
+    </div>
+    {% endfor %}
+</ul>
+</center>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% endblock content %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<br><br>
+<center>
+<form method="post" action="{% url 'contact-page' %}">
+    {% csrf_token %}
+    <div class="w-25 p-3;"> 
+      <input class="form-control" aria-describedby="emailHelp" placeholder="{% trans 'Subject' %}" name="subject">
+    </div>
+    <br>
+    <div class="w-25 p-3;"> 
+        <textarea class="form-control h-100" aria-describedby="emailHelp" placeholder="{% trans 'Your Message' %}" name="message"></textarea>
+    </div>
+    <br>
+      <div class="w-25 p-3;"> 
+        <input type="email" class="form-control"  aria-describedby="emailHelp" placeholder="{% trans 'Your E-mail' %}" name="sender_email">
+    </div>
+    <button type="submit" class="btn btn-primary">{% trans "Submit" %}</button>
+  </form>
+</center>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
+{% endblock content %}

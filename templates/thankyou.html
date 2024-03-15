@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+    <br><br>
+    <center>
+    <h1>{% trans "Thank you for reaching us!" %}</h1>
+    <br><br>
+
+    <a href="{% url "contact-page" %}"><button>{% trans "Send another" %}</button></a>
+    <a href="{% url "home" %}"><button>{% trans "Homepage" %}</button></a></h1>
+    </center>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    
+{% endblock content %}
